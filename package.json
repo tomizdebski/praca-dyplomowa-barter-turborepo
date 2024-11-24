@@ -25,7 +25,9 @@
   ],
   "dependencies": {
     "@clerk/nextjs": "^6.4.0",
+    "@nestjs/serve-static": "^4.0.2",
     "@prisma/client": "^5.22.0",
+    "serve-static": "^1.16.2",
     "zod": "^3.23.8"
   }
 }
