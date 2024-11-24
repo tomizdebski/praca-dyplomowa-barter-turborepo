@@ -1,4 +1,8 @@
-import { BadRequestException, ForbiddenException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+} from '@nestjs/common';
 import { PrismaService } from 'prisma/prisma.service';
 import { AuthDto } from './dto/auth.dto';
 import * as bcrypt from 'bcrypt';
@@ -8,10 +12,13 @@ import { Request, Response } from 'express';
 
 @Injectable()
 export class AuthService {
-  constructor(private prisma: PrismaService, private jwt: JwtService) {}
+  constructor(
+    private prisma: PrismaService,
+    private jwt: JwtService,
+  ) {}
 
   async signup(dto: AuthDto) {
-    const { email, password } = dto;
+    const { email, password, avatar } = dto;
 
     const foundUser = await this.prisma.users.findUnique({ where: { email } });
     if (foundUser) {
@@ -22,9 +29,10 @@ export class AuthService {
 
     await this.prisma.users.create({
       data: {
-         email, 
-         password: hashedPassword, 
-        },
+        email,
+        password: hashedPassword,
+        avatar: avatar || null,
+      },
     });
 
     return { message: 'signup was sucessful', user: { email } };
@@ -47,7 +55,10 @@ export class AuthService {
       throw new BadRequestException('Invalid password');
     }
 
-    const token = await this.signToken({id: foundUser.id.toString(), email: foundUser.email});
+    const token = await this.signToken({
+      id: foundUser.id.toString(),
+      email: foundUser.email,
+    });
 
     if (!token) {
       throw new ForbiddenException();
@@ -55,8 +66,7 @@ export class AuthService {
 
     res.cookie('token', token);
 
-
-    return res.send({message: 'Logged in succesfully' });
+    return res.send({ message: 'Logged in succesfully' });
   }
 
   async signout(req: Request, res: Response) {
@@ -75,9 +85,8 @@ export class AuthService {
     return bcrypt.compare(password, hashedPassword);
   }
 
-  async signToken(args: {id: string, email: string}) {
+  async signToken(args: { id: string; email: string }) {
     const payload = args;
-    return this.jwt.signAsync(payload, {secret: jwtSecret});
+    return this.jwt.signAsync(payload, { secret: jwtSecret });
   }
-    
 }
