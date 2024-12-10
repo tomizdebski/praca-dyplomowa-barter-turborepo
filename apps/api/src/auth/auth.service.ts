@@ -74,6 +74,11 @@ export class AuthService {
     return res.send({ message: 'Logged out successfully' });
   }
 
+  async me(req: Request) {
+    const { user } = req as any;
+    return user;
+  }
+
   async hashPassword(password: string) {
     const saltOrRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltOrRounds);
