@@ -1,11 +1,19 @@
-import { Controller, Get, Query, BadRequestException } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Query,
+  BadRequestException,
+  UseGuards,
+} from '@nestjs/common';
 import { QuizService } from './quiz.service';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Controller('quiz')
 export class QuizController {
   constructor(private readonly quizService: QuizService) {}
 
   @Get()
+  @UseGuards(AuthGuard)
   getQuestions(
     @Query('count') count: string, // liczba pytań
     @Query('topic') topic: string, // temat pytań

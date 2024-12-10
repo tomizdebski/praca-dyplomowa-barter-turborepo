@@ -62,6 +62,11 @@ export class AuthController {
     return this.authService.signout(req, res);
   }
 
+  @Get('me')
+  async me(@Req() req) {
+    return this.authService.me(req);
+  }
+
   @Post('/upload')
   @UseInterceptors(
     FileInterceptor('file', {
