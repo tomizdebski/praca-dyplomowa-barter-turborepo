@@ -1,8 +1,8 @@
 const React = [
   {
     question:
-      "If you want to import just the Component from the React library, what syntax do you use?",
-    code: "",
+      'If you want to import just the Component from the React library, what syntax do you use?',
+    code: '',
     q1: "import React.Component from 'react'",
     q2: "import [ Component ] from 'react'",
     q3: "import Component from 'react'",
@@ -11,17 +11,17 @@ const React = [
   },
   {
     question:
-      "If a function component should always render the same way given the same props, what is a simple performance optimization available for it?",
-    code: "",
-    q1: "Wrap it in the React.memo higher-order component.",
-    q3: "Implement the useReducer Hook.",
-    q4: "Implement the useMemo Hook.",
-    q4: "Implement the shouldComponentUpdate lifecycle method.",
-    answer: "Wrap it in the React.memo higher-order component.",
+      'If a function component should always render the same way given the same props, what is a simple performance optimization available for it?',
+    code: '',
+    q1: 'Wrap it in the React.memo higher-order component.',
+    q2: 'Implement the useReducer Hook.',
+    q3: 'Implement the useMemo Hook.',
+    q4: 'Implement the shouldComponentUpdate lifecycle method.',
+    answer: 'Wrap it in the React.memo higher-order component.',
   },
   {
     question:
-      "How do you fix the syntax error that results from running this code?",
+      'How do you fix the syntax error that results from running this code?',
     code: `const person =(firstName, lastName) =>
 {
   first: firstName,
@@ -29,25 +29,25 @@ const React = [
 }
 console.log(person("Jill", "Wilson"))`,
 
-    q1: "Wrap the object in parentheses.",
-    q2: "Call the function from another file.",
-    q3: "Add a return statement before the first curly brace.",
-    q4: "Replace the object with an array.}",
-    answer: "Wrap the object in parentheses.",
+    q1: 'Wrap the object in parentheses.',
+    q2: 'Call the function from another file.',
+    q3: 'Add a return statement before the first curly brace.',
+    q4: 'Replace the object with an array.}',
+    answer: 'Wrap the object in parentheses.',
   },
   {
     question:
-      "If you see the following import in a file, what is being used for state management in the component?",
+      'If you see the following import in a file, what is being used for state management in the component?',
     code: "import React, {useState} from 'react';",
-    q1: "React Hooks",
-    q2: "stateful components",
-    q3: "math",
-    q4: "class components",
-    answer: "React Hooks",
+    q1: 'React Hooks',
+    q2: 'stateful components',
+    q3: 'math',
+    q4: 'class components',
+    answer: 'React Hooks',
   },
   {
     question:
-      "Using object literal enhancement, you can put values back into an object. When you log person to the console, what is the output?",
+      'Using object literal enhancement, you can put values back into an object. When you log person to the console, what is the output?',
     code: `const name = 'Rachel';
             const age = 31;
             const person = { name, age };
@@ -59,17 +59,17 @@ console.log(person("Jill", "Wilson"))`,
     answer: `{name: "Rachel", age: 31}`,
   },
   {
-    question: " What is the testing library most often associated with React?",
-    code: "",
-    q1: "Mocha",
-    q2: "Chai",
-    q3: "Sinon",
-    q4: "Jest",
-    answer: "Jest",
+    question: ' What is the testing library most often associated with React?',
+    code: '',
+    q1: 'Mocha',
+    q2: 'Chai',
+    q3: 'Sinon',
+    q4: 'Jest',
+    answer: 'Jest',
   },
   {
     question:
-      "To get the first item from the array (“cooking”) using array destructuring, how do you adjust this line?",
+      'To get the first item from the array (“cooking”) using array destructuring, how do you adjust this line?',
     code: `const topics = ['cooking', 'art', 'history'];`,
     q1: 'const first = ["cooking", "art", "history"]',
     q2: `const [] = ["cooking", "art", "history"]`,
@@ -93,7 +93,7 @@ console.log(animal);`,
     q2: `Cat`,
     q3: `Mouse`,
     q4: `undefined`,
-    answer: `Cat`
+    answer: `Cat`,
   },
   {
     question: ` What is the name of the tool used to take JSX and turn it into createElement calls?`,
@@ -101,9 +101,8 @@ console.log(animal);`,
     q2: `ReactDOM`,
     q3: `Browser Buddy`,
     q4: `Babel`,
-    answer: `Babel`
+    answer: `Babel`,
   },
-
 ];
 // Q11. Why might you use useReducer over useState in a React component?
 // when you want to replace Redux
